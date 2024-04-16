@@ -9,8 +9,8 @@ function Shopcategory({ name, price, image, cart, setCart }) {
 
   return (
     <>
-      <div className=" flex-1 flex flex-col my-[5rem] items-center  sm:flex-wrap overflow-hidden">
-        <div className="h-[400px] bg-[#f0efef] flex justify-center items-center group relative">
+      <div className=" flex-1 gap-2em flex flex-col my-[5rem] items-center  sm:flex-wrap overflow-hidden">
+        <div className="h-[400px] bg-[#f0efef] flex gap-4 justify-center items-center group relative">
           <img className="w-full h-full object-cover" src={image} alt="" />
           <button
             onClick={(e) => handleAddToCart(e, { name, image, price })}
@@ -27,6 +27,7 @@ function Shopcategory({ name, price, image, cart, setCart }) {
               <p>{price}</p>
             </div>
           </div>
+          
           <AiOutlineHeart />
         </div>
       </div>

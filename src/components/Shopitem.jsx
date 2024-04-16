@@ -6,7 +6,7 @@ function Shopitem() {
       items-center border rounded-full my-[6em] right-6 px-8 gap-3 w-[70%] ">
         <FiSearch size={30} />
         <input
-          className="text-[1.2rem] p-7 "
+          className="text-[1.2rem] p-7 outline-none"
           type="text"
           placeholder="Search Products and categories"
         />

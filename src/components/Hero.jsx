@@ -15,14 +15,14 @@ function Hero() {
           beautiful. True style never dies.
         </p>
         <div className="flex gap-5">
-          <button className="border rounded-full py-4 px-[4em] bg-emerald-400">
+          <button className="border shadow-lg rounded-full py-4 px-[4em] bg-emerald-400">
             Shop Now
           </button>
-          <button className="border rounded-full py-4 px-[4em] text-emerald-400 shadow-xl">
+          <button className="border shadow-lg rounded-full py-4 px-[4em] text-emerald-400">
             About Us
           </button>
         </div>
-        <div className="flex  flex-1 items-center border rounded-full my-10 right-7 px-8 gap-3">
+        <div className="flex outline-none flex-1 items-center border rounded-full my-10 right-7 px-8 gap-3">
           <FiSearch size={30} />
           <input
             className="text-[1.2rem] shadow-lg py-5" 
