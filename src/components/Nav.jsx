@@ -23,7 +23,7 @@ function Nav({ cart, setCart }) {
         </ul>
         <ul className="right flex gap-5 items-center justify-between">
           <li className="relative">
-            <AiOutlineShoppingCart size={30} />
+           <Link to="/addtocart"> <AiOutlineShoppingCart size={30} /></Link>
             <span className="position absolute right-[-8px] flex items-center justify-center top-[-10px]  bg-emerald-600 w-[17px] h-[17px] rounded-full">
               {cart ? cart.length:0}
             </span>
