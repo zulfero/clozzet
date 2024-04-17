@@ -1,9 +1,9 @@
 import AddToCart from "../components/AddToCart"
 
-function addtocart(){
+function addtocart({cart,setCart}){
     return(
         <>
-        <AddToCart/>
+        <AddToCart cart={cart} setCart={setCart}/>
         </>
     )
 }

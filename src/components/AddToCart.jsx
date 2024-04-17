@@ -1,4 +1,5 @@
-function AddToCart() {
+import Cartproduct from "./CartProduct";
+function AddToCart(cart, setCart) {
   return (
     <div className="container mx-auto  gap-4 flex">
       <div className=" flex-1 border">
@@ -7,145 +8,19 @@ function AddToCart() {
           <h1 className="flex-1 flex justify-center">Quantity</h1>
           <h1 className="flex-1 flex justify-center">Price</h1>
         </div>
-
-        <div className="flex justify-around items-center py-5">
-          <div className="flex justify-center flex-1">
-            <img
-              className=""
-              src="src/assets/shop-images/knitted-sweater.png"
-              alt=""
-              width={100}
-            />
-            <div className="font-black">
-              <h3>Strip Knitted Sweater</h3>
-              <h3 className="text-[#b0b0b0]">Size: XL</h3>
-            </div>
-          </div>
-
-          <div className="flex justify-center text-xl flex-1">
-            <p className="py-1 px-4 border">-</p>
-            <p className="py-1 px-4 border">1</p>
-            <p className="py-1 px-4 border">+</p>
-          </div>
-          <div className="flex-1 flex justify-center">
-            <p>KSH 2250</p>
-          </div>
-        </div>
-        <div className="flex justify-around items-center py-5">
-          <div className="flex justify-center flex-1">
-            <img
-              className=""
-              src="src/assets/shop-images/unisex.png"
-              alt=""
-              width={100}
-            />
-            <div className="font-black">
-              <h3>Unisex Airforce Sneakers</h3>
-              <h3 className="text-[#b0b0b0]">Size: XL</h3>
-            </div>
-          </div>
-
-          <div className="flex justify-center text-xl flex-1">
-            <p className="py-1 px-4 border">-</p>
-            <p className="py-1 px-4 border">1</p>
-            <p className="py-1 px-4 border">+</p>
-          </div>
-          <div className="flex-1 flex justify-center">
-            <p>KSH 2250</p>
-          </div>
-        </div>
-        <div className="flex justify-around items-center py-5">
-          <div className="flex justify-center flex-1">
-            <img
-              className=""
-              src="src/assets/shop-images/slim-banquet-dress.png"
-              alt=""
-              width={150}
-            />
-            <div className="font-black">
-              <h3>Slim Banquet Dress</h3>
-              <h3 className="text-[#b0b0b0]">Size: XL</h3>
-            </div>
-          </div>
-
-          <div className="flex justify-center text-xl flex-1">
-            <p className="py-1 px-4 border">-</p>
-            <p className="py-1 px-4 border">1</p>
-            <p className="py-1 px-4 border">+</p>
-          </div>
-          <div className="flex-1 flex justify-center">
-            <p>KSH 2250</p>
-          </div>
+        <div>
+          {cart.map((item) => {
+            return (
+              <Cartproduct
+                price={item.price}
+                title={item.title}
+                size={item.size}
+              />
+            );
+          })}
         </div>
       </div>
 
-      {/* <div className="flex justify-around items-center py-5">
-      <div className="flex justify-center flex-1">
-          <img src="src/assets/shop-images/unisex.png" alt="" width={100} />
-          <div className="font-black">
-            <h1>Strip Knitted Sweater</h1>
-            <h2>Size: XL</h2>
-            </div>
-            <div className="flex justify-center text-xl flex-1">
-              <p className="py-1 px-4 border">-</p>
-              <p className="py-1 px-4 border">1</p>
-              <p className="py-1 px-4 border">+</p>
-            </div>
-          </div>
-          <div className="flex-1 flex justify-center">
-            <p>KSH 2250</p>
-          </div>
-        </div>
-
-        <div className="flex justify-around items-center py-5">
-        <div className="flex justify-center flex-1">
-          <img
-            className=""
-            src="src/assets/shop-images/slim-banquet-dress.png"
-            alt=""
-            width={100}
-          />
-          </div>
-          <div className="font-black">
-          <h1>Strip Knitted Sweater</h1>
-          <h2>Size: XL</h2>
-          </div>
-
-          <div className=" flex justify-center text-xl flex-1 ">
-            <p className="py-1 px-4 border">-</p>
-            <p className="py-1 px-4 border">1</p>
-            <p className="py-1 px-4 border">+</p>
-          </div>
-
-          <div className="flex-1 flex justify-center">
-            <p>KSH 2250</p>
-          </div>
-        </div>
-
-        <div className="flex justify-around items-center py-5">
-        <div className="flex justify-center flex-1">
-          <img
-            className=""
-            src="src/assets/shop-images/ragged-jeans.png"
-            alt=""
-            width={100}
-          />
-          </div>
-         <div className="font-black">
-          <h1>Strip Knitted sweater</h1>
-          <h2>Size: XL</h2>
-          </div>
-
-          <div className="flex justify-center text-xl flex-1">
-            <p className="py-1 px-4 border">-</p>
-            <p className="py-1 px-4 border">1</p>
-            <p className="py-1 px-4 border">+</p>
-          </div>
-          <div className="flex-1 flex just-">
-            <p>KSH 2250</p>
-          </div>
-        </div>
-      </div> */}
       <div className="border w-[27%] h-[50vh] pl-6 pt-9 bg-[#eeeeee]">
         <h1 className="flex justify-center font-black text-2xl">
           Cart Summary
