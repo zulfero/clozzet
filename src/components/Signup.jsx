@@ -1,4 +1,12 @@
+import { AiOutlineEye } from "react-icons/ai";
+import { AiOutlineEyeInvisible } from "react-icons/ai";
+import { useState } from "react";
+
 function Signup() {
+  const [showPassword, setshowPassword] = useState(false);
+  function handleShowPassword() {
+    setshowPassword((prev) => !prev);
+  }
   return (
     <div className="container mx-auto flex justify-between w-[100%] h-[80vh] p-2">
       <div className="w-[40%] h-[99vh] ">
@@ -25,11 +33,19 @@ function Signup() {
           type="text"
           placeholder="Phone Number"
         />
-        <input
-          className="border border-[grey] rounded-full  flex my-9 px-[11em] py-[1.6em]"
-          type="text"
-          placeholder="Password"
-        />
+        <div className="flex items-center border border-[grey] rounded-full pl-4 ">
+          <input
+            className="flex-1 bg-transparent outline-none  my-1 px-[3em] py-5"
+            type={showPassword ? "password" : "text"}
+            placeholder="Password"
+          />
+          <div
+            onClick={handleShowPassword}
+            className="cursor-pointer gap-2 flex"
+          >
+            {showPassword ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
+          </div>
+        </div>
         <input
           className="border border-[grey] rounded-full  flex my-9 px-[11em] py-[1.6em]"
           type="text"
@@ -42,18 +58,18 @@ function Signup() {
           </button>
         </div>
         <div className="flex items-center m-8 gap-2">
-          <div className="bg-black h-[2px] flex-1"></div><p>OR</p><div className="bg-black h-[2px] flex-1"></div>
+          <div className="bg-black h-[2px] flex-1"></div>
+          <p>OR</p>
+          <div className="bg-black h-[2px] flex-1"></div>
         </div>
         <div>
           <div className="flex text-xl justify-between border rounded-full text-[blue]  py-[.3em] text-[1em]  px-[10em]">
             <img
               src="src/assets/images/google-color-icon.png"
               alt=""
-              width={80}
+              width={50}
             />
-            <button className="">
-              Sign Up With Google
-            </button>
+            <button className="">Sign Up With Google</button>
           </div>
         </div>
         <div>
