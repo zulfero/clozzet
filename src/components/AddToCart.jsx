@@ -1,5 +1,5 @@
 import Cartproduct from "./CartProduct";
-function AddToCart(cart, setCart) {
+function AddToCart({cart, setCart}) {
   return (
     <div className="container mx-auto  gap-4 flex">
       <div className=" flex-1 border">
