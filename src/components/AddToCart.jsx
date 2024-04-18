@@ -17,6 +17,8 @@ function AddToCart({ cart, setCart }) {
                 name={item.name}
                 size={item.size}
                 image={item.image}
+                cart={cart}
+                setCart={setCart}
               />
             );
           })}

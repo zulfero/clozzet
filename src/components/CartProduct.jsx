@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function Cartproduct({ image, price, name, size, setcart, cart }) {
+function Cartproduct({ image, price, name, size, setCart, cart }) {
   const [cartCopy, setcartCopy] = useState([]);
   useEffect(() => {
     cart && setcartCopy([...cart]);
@@ -9,7 +9,7 @@ function Cartproduct({ image, price, name, size, setcart, cart }) {
     if (action === "increment") {
       setcartCopy((prev) => [...prev, product]);
     }else if(action==="decerement"){
-      
+
     }
   
     
@@ -28,7 +28,7 @@ function Cartproduct({ image, price, name, size, setcart, cart }) {
         <div className="flex justify-center text-xl flex-1">
           <p className="py-1 px-4 border">{}</p>
           <p className="py-1 px-4 border">
-            {cartCopy.filter((item) => item.name === name).length}
+            {cartCopy.filter((item) => item.name===name).length}
           </p>
           <p
             onClick={() =>
