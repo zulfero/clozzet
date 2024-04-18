@@ -1,4 +1,5 @@
 import Cartproduct from "./CartProduct";
+
 function AddToCart({ cart, setCart }) {
   return (
     <div className="container mx-auto  gap-4 flex">
@@ -31,7 +32,7 @@ function AddToCart({ cart, setCart }) {
         </p>
         <div className="flex gap-3">
           <input
-            className="border p-4 "
+            className="border p-4 outline-none "
             type="text"
             placeholder="Promo Code(optional)"
           />
