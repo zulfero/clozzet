@@ -1,18 +1,20 @@
 import { useEffect, useState } from "react";
+import { MdDragHandle } from "react-icons/md";
 
 function Cartproduct({ image, price, name, size, setCart, cart }) {
   const [cartCopy, setcartCopy] = useState([]);
   useEffect(() => {
     cart && setcartCopy([...cart]);
   }, []);
-  function hanleCartActions(action, product) {
+  function handleCartActions(action, product) {
     if (action === "increment") {
       setcartCopy((prev) => [...prev, product]);
-    }else if(action==="decerement"){
-
+    } else if (action === "decrement") {
+      const cartCopyItems = [...cartCopy];
+      const cartItemIndex = cartCopyItems.indexOf(product);
+      cartCopyItems.splice(cartItemIndex, 1);
+      setcartCopy(cartCopyItems);
     }
-  
-    
   }
   return (
     <>
@@ -26,13 +28,20 @@ function Cartproduct({ image, price, name, size, setCart, cart }) {
         </div>
 
         <div className="flex justify-center text-xl flex-1">
-          <p className="py-1 px-4 border">{}</p>
+          <p
+            onClick={() =>
+              handleCartActions("decrement", { image, price, name })
+            }
+            className="py-1 px-4 border cursor-pointer"
+          >
+            -
+          </p>
           <p className="py-1 px-4 border">
-            {cartCopy.filter((item) => item.name===name).length}
+            {cartCopy.filter((item) => item.name === name).length}
           </p>
           <p
             onClick={() =>
-              hanleCartActions("increment", { image, price, name })
+              handleCartActions("increment", { image, price, name })
             }
             className="py-1 px-4 cursor-pointer border"
           >
