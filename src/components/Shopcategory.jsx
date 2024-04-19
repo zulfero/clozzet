@@ -1,5 +1,5 @@
 import { AiOutlineHeart } from "react-icons/ai";
-function Shopcategory({ name, price, image, cart, setCart }) {
+function Shopcategory({ name, price, image,  setCart,subtotals }) {
   const handleAddToCart = (e, product) => {
     if (e.target.textContent.toLowerCase() === "add to cart") {
       setCart((prev) => [...prev, product]);
@@ -13,7 +13,7 @@ function Shopcategory({ name, price, image, cart, setCart }) {
         <div className="h-[400px] bg-[#f0efef] flex gap-4 justify-center items-center group relative">
           <img className="w-full h-full object-cover" src={image} alt="" />
           <button
-            onClick={(e) => handleAddToCart(e, { name, image, price})}
+            onClick={(e) => handleAddToCart(e, { name, image, price,subtotals})}
             className="rounded-xl text-[1rem] font-bold
         py-3 w-full bg-emerald-300 group-hover:block hidden absolute bottom-0"
           >

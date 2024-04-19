@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { MdDragHandle } from "react-icons/md";
 
-function Cartproduct({ image, price, name, size, setCart, cart }) {
+function Cartproduct({ image, price, name, size, setCart, cart, subtotals }) {
   const [cartCopy, setcartCopy] = useState([]);
   useEffect(() => {
     cart && setcartCopy([...cart]);
@@ -28,15 +28,18 @@ function Cartproduct({ image, price, name, size, setCart, cart }) {
         </div>
 
         <div className="flex justify-center text-xl flex-1">
-          <p
+          <button
             onClick={() =>
               handleCartActions("decrement", { image, price, name })
             }
-            className="py-1 px-4 border cursor-pointer"
+            disabled={
+              cartCopy.filter((item) => item.name === name).length === 1
+            }
+            className="py-1 px-4 border cursor-pointer disabled:bg-gray-300 disabled:text-white"
           >
             -
-          </p>
-          <p className="py-1 px-4 border">
+          </button>
+          <p className="py-1 px-4 border content-none">
             {cartCopy.filter((item) => item.name === name).length}
           </p>
           <p
@@ -48,8 +51,28 @@ function Cartproduct({ image, price, name, size, setCart, cart }) {
             +
           </p>
         </div>
+        {/* {console.log(
+          cartCopy
+            .filter((item) => item.name === name)
+            .reduce(
+              (acc, curr) =>
+                acc + parseInt(curr.price.replace("Ksh ", "").replace(",", "")),
+              0
+            )
+        )} */}
         <div className="flex-1 flex justify-center">
-          <p>{price}</p>
+          <p>
+            {" "}
+            {`Ksh. ${cartCopy
+              .filter((item) => item.name === name)
+              .reduce(
+                (acc, curr) =>
+                  acc +
+                  parseInt(curr.price.replace("Ksh ", "").replace(",", "")),
+                0
+              )
+              .toLocaleString()}`}
+          </p>
         </div>
       </div>
     </>

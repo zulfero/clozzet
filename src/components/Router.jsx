@@ -9,7 +9,7 @@ import AddToCart from "./AddToCart";
 import SingleProduct from "./SingleProduct";
 import AddProducts from "./AddProducts";
 import { useState } from "react";
-function Router() {
+function Router({subtotals}) {
   const [cart, setCart] = useState([]);
   return (
     <BrowserRouter>
