@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { MdDragHandle } from "react-icons/md";
 
-function Cartproduct({ image, price, name, size, setCart, cart, subtotals }) {
+function Cartproduct({ image, price, name, size, cart,}) {
   const [cartCopy, setcartCopy] = useState([]);
   useEffect(() => {
     cart && setcartCopy([...cart]);

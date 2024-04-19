@@ -9,16 +9,18 @@ import AddToCart from "./AddToCart";
 import SingleProduct from "./SingleProduct";
 import AddProducts from "./AddProducts";
 import { useState } from "react";
-function Router({subtotals}) {
-  const [cart, setCart] = useState([]);
+function Router({}) {
+  const [cart, setCart,] = useState([]);
+  const[cartCopy,setcartCopy] = useState([])
+
   return (
     <BrowserRouter>
       <Routes>
         <Route
           path="/"
           element={
-            <Layout cart={cart} setCart={setCart}>
-              <Home cart={cart} setCart={setCart} />
+            <Layout cart={cart} setCart={setCart} cartCopy={cartCopy} setcartCopy={setcartCopy}>
+              <Home cart={cart} setCart={setCart} cartCopy={cartCopy} setcartCopy={setcartCopy}/>
             </Layout>
           }
         />
@@ -33,8 +35,8 @@ function Router({subtotals}) {
         <Route
           path="/shop"
           element={
-            <Layout cart={cart} setCart={setCart}>
-              <Shop cart={cart} setCart={setCart} />
+            <Layout cart={cart} setCart={setCart} cartCopy={cartCopy} setcartCopy={setcartCopy}>
+              <Shop cart={cart} setCart={setCart} cartCopy={cartCopy} setcartCopy={setcartCopy}/>
             </Layout>
           }
         />
@@ -57,8 +59,8 @@ function Router({subtotals}) {
         <Route
           path="addtocart"
           element={
-            <Layout cart={cart} setCart={setCart}>
-              <AddToCart cart={cart} setCart={setCart} />
+            <Layout cart={cart} setCart={setCart} cartCopy={cartCopy} setcartCopy={setcartCopy}>
+              <AddToCart cart={cart} setCart={setCart} cartCopy={cartCopy} setcartCopy={setcartCopy}/>
             </Layout>
           }
         />

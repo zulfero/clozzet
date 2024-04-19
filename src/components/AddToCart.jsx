@@ -1,6 +1,6 @@
 import Cartproduct from "./CartProduct";
 
-function AddToCart({ cart, setCart,}) {
+function AddToCart({ cart, setCart, cartCopy,setcartCopy, name }) {
   return (
     <div className="container mx-auto  gap-4 flex">
       <div className=" flex-1 border">
@@ -19,6 +19,8 @@ function AddToCart({ cart, setCart,}) {
                 image={item.image}
                 cart={cart}
                 setCart={setCart}
+                cartCopy={cartCopy}
+                setcartCopy={setcartCopy}
               />
             );
           })}
@@ -45,10 +47,14 @@ function AddToCart({ cart, setCart,}) {
         <div className="pr-5 pt-7">
           <div className="flex justify-between pt-2">
             <p>Subtotal</p>
-            <p>{`Ksh.${cartCopy 
-          ((item)=>item.name===name)
-          .reduce((acc,curr)=> acc + parseInt(curr.price.replace("Ksh"," ").replace(",","")),
-          0).toLocaleString()}`}</p>
+            <p>{`Ksh.${cartCopy((item) => item.name === name)
+              .reduce(
+                (acc, curr) =>
+                  acc +
+                  parseInt(curr.price.replace("Ksh", " ").replace(",", "")),
+                0
+              )
+              .toLocaleString()}`}</p>
           </div>
           <div className="flex justify-between pt-7 ">
             <p>Delivery Fee</p>
