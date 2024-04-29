@@ -1,4 +1,5 @@
 import { FiSearch } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 function Hero() {
   return (
@@ -18,14 +19,16 @@ function Hero() {
           <button className="border shadow-lg rounded-full py-4 px-[4em] bg-emerald-400">
             Shop Now
           </button>
-          <button className="border shadow-lg rounded-full py-4 px-[4em] text-emerald-400">
-            About Us
-          </button>
+          <Link to="/aboutus">
+            <button className="border shadow-lg rounded-full py-4 px-[4em] text-emerald-400">
+              About Us
+            </button>
+          </Link>
         </div>
         <div className="flex outline-none flex-1 items-center border rounded-full my-10 right-7 px-8 gap-3">
           <FiSearch size={30} />
           <input
-            className="text-[1.2rem] shadow-lg py-5" 
+            className="text-[1.2rem] shadow-lg py-5"
             type="text"
             placeholder="search"
           />

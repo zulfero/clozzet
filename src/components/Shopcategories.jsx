@@ -2,8 +2,8 @@ import Shopcategory from "./Shopcategory";
 
 function Shopcategories({ cart, setCart }) {
   return (
-    <div className="container mx-auto">
-      <div className="flex flex-wrap">
+    <div className="container mx-auto flex-wrap">
+      <div className="flex">
         <Shopcategory
           cart={cart}
           setCart={setCart}

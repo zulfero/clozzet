@@ -1,8 +1,16 @@
 import { useEffect, useState } from "react";
 import { MdDragHandle } from "react-icons/md";
 
-function Cartproduct({ image, price, name, size, cart,}) {
-  const [cartCopy, setcartCopy] = useState([]);
+function Cartproduct({
+  image,
+  price,
+  name,
+  size,
+  cart,
+  setCart,
+  cartCopy,
+  setcartCopy,
+}) {
   useEffect(() => {
     cart && setcartCopy([...cart]);
   }, []);
@@ -14,6 +22,13 @@ function Cartproduct({ image, price, name, size, cart,}) {
       const cartItemIndex = cartCopyItems.indexOf(product);
       cartCopyItems.splice(cartItemIndex, 1);
       setcartCopy(cartCopyItems);
+    } else if (action === "trash") {
+      const cartFilter = cart.filter((item) => item.name !== name);
+      setCart(cartFilter);
+      localStorage.setItem("cart", cartFilter);
+    }
+    if (cart.length === 0) {
+      setcartCopy("cart is empty. shop now");
     }
   }
   return (
@@ -51,7 +66,7 @@ function Cartproduct({ image, price, name, size, cart,}) {
             +
           </p>
         </div>
-        {/* {console.log(
+        {/* {console.log(z
           cartCopy
             .filter((item) => item.name === name)
             .reduce(
@@ -73,6 +88,14 @@ function Cartproduct({ image, price, name, size, cart,}) {
               )
               .toLocaleString()}`}
           </p>
+        </div>
+        <div>
+          <button
+            onClick={() => handleCartActions("trash")}
+            className="border rounded-full bg-red-500 mr-4 "
+          >
+            trash
+          </button>
         </div>
       </div>
     </>
